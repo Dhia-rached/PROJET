@@ -1,0 +1,13 @@
+CRUD
+-ajouter une vehicule 
+-afficher les vehicules 
+-supprimer une vehicule
+-modifier l'etat d'une vehicule
+
+
+Gestion des vehicules : 
+- trier les vehicules (trier les vehicules par date d'entrer , par couleur, par modele)
+- recherche(recherche du vehicule  par sa matricule)
+- generer un fichier pdf (afficher la liste des vehicules)
+- mailing(envoie un mail au client)
+-calandrier excel(ouvrir un fichier excel)
