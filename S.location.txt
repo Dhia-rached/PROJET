@@ -1,9 +1,0 @@
-﻿Service de location : Mustapha Karoui
--  trier(modele,dure de location,date)
--  recherche
-- PDF : gerer la liste de voiture sous format PDf
-   -gerer l'historique
- -Effet sonore
-CRUDS :
--Gestion des véhicules -Gestion des employer -Gestion du matériel -Marketing
--Gestion des locaux -Service de location
