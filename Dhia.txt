@@ -1,0 +1,10 @@
+CRUD
+-ajouter un employe
+-supprimer un employe
+-modifier l'etat du l'employe
+Gestion des employer : Dhiaelhak Rached
+- trier les employer (trier les employés par nom, par salaire, par sexe)
+- recherche(recherche de client  par son nom , identifiant, poste)
+- sécurité (indentification,Login)
+- chat(un systeme de chat entre les employes pour faciliter le travail)
+-insertion et affichage de photo(insertion des images des employes )
