@@ -1,0 +1,13 @@
+CRUD
+-ajouter un influenceur
+-afficher les  influenceurs
+-supprimer un  influenceur
+-modifier l'etat de l'influenceur
+
+
+Marketing : 
+- trier les  influenceurs (trier les  influenceurs par nom, par salaire,nombre d'abonnées )
+- recherche(recherche d'influenceur par son nom , email )
+- generer fichier PDF (gerer la liste des influenceurs sous format PDF)
+- tutoriel de l’application(une vidéo qui explique comment fonctionne l'application)
+- acces au réseaux sociaux (des boutons qui dirigent l'utilisateur de l'application vers nos réseaux sociaux)
