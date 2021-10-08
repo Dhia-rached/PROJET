@@ -1,0 +1,15 @@
+﻿ 
+ Service de location : Mostapha Karoui
+
+  - trier(modele,dure de location,date)
+  - recherche
+  - PDF : gerer la liste de voiture sous format PDf
+  - gerer l'historique
+  - Effet sonore
+
+  CRUDS :
+
+  - modifier location
+  - afficher les véhicule louer
+  - supprimer véhicule
+  - ajouter location
