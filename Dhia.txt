@@ -1,5 +1,6 @@
 CRUD
 -ajouter un employe
+-afficher les employes
 -supprimer un employe
 -modifier l'etat du l'employe
 
