@@ -29,7 +29,7 @@ void MainWindow::on_Valider_clicked()
 bool f=false;
     for(i=0;i<username.length();i++)
     {
-        if(username.contains("@"))
+        if(username.contains("@")&&username.contains(".")&&username.contains("com")&&username.contains("gmail")&& mdp!="")
         {
             f=true;
         }
@@ -37,7 +37,6 @@ bool f=false;
     if(f==true)
     {
         QMessageBox::information(this,"Login","correct");
-        hide();
 
     }else
         QMessageBox::warning(this,"Login","incorrect");

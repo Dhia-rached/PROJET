@@ -17,16 +17,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     connection.cpp \
+    les_services.cpp \
     log_in.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     connection.h \
+    les_services.h \
     log_in.h \
     mainwindow.h
 
 FORMS += \
+    les_services.ui \
     log_in.ui \
     mainwindow.ui
 
