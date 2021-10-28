@@ -3,26 +3,10 @@
 
 #include <QDialog>
 #include<string>
-
+#include"mat.h"
 using namespace std;
 
-class materiels
-{
-private:
-    int num_serie;
-    int quantiter;
-    float prix;
-    string nom_fournisseur;
-    string nom_materiel;
-    string type;
 
-public:
-    void ajouter_materiel();
-    void supprimer_materiel();
-    void afficher_materiel();
-    void modifier_materiel();
-
-};
 namespace Ui {
 class materiel;
 }
@@ -38,8 +22,11 @@ public:
 private slots:
     void on_Valider_clicked();
 
+    void on_supp_clicked();
+
 private:
     Ui::materiel *ui;
+    Mat m;
 };
 
 #endif // MATERIEL_H

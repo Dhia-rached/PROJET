@@ -1,30 +1,30 @@
 #ifndef MAT_H
 #define MAT_H
-#include <string>
-
+#include <QString>
+#include<QSqlQueryModel>
 using namespace std;
 
 class Mat
 {
 public:
     Mat();
-    Mat(int,int,float,string,string,string);
+    Mat(int,int,float,QString,QString,QString);
     int getnums();
     int getquantiter();
     float getprix();
-    string getnomf();
-    string getnomm();
-    string gettype();
+    QString getnomf();
+    QString getnomm();
+    QString gettype();
 
     void setnums(int);
     void setquantiter(int);
     void setprix(float);
-    void setnomf(string);
-    void setnomm(string);
-    void settype(string);
+    void setnomf(QString);
+    void setnomm(QString);
+    void settype(QString);
     bool ajouter_materiel();
-    void supprimer_materiel();
-    void afficher_materiel();
+    QSqlQueryModel* afficher_materiel();
+    bool supprimer_materiel(int);
     void modifier_materiel();
 
 
@@ -33,9 +33,9 @@ private:
     int num_serie;
     int quantiter;
     float prix;
-    string nom_fournisseur;
-    string nom_materiel;
-    string type;
+    QString nom_fournisseur;
+    QString nom_materiel;
+    QString type;
 
 
 };
