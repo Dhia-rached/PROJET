@@ -33,7 +33,7 @@ void materiel::on_Valider_clicked()
 {
     int num_serie=ui->numserie->text().toInt();
     int quantiter=ui->quantiter->text().toInt();
-    float prix=ui->prix->text().toFloat();
+    int prix=ui->prix->text().toInt();
     QString nom_fournisseur=ui->nom_f->text();
     QString nom_materiel=ui->nom_m->text();
     QString type=ui->type->text();

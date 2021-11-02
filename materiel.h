@@ -24,6 +24,8 @@ private slots:
 
     void on_supp_clicked();
 
+    void on_nom_m_cursorPositionChanged(int arg1, int arg2);
+
 private:
     Ui::materiel *ui;
     Mat m;
