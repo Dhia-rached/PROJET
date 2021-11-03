@@ -6,21 +6,37 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1634</width>
-    <height>921</height>
+    <width>1115</width>
+    <height>616</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-40</y>
+      <width>1111</width>
+      <height>621</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../../Downloads/background4 (1) (1).png</pixmap>
+    </property>
+   </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>140</y>
-      <width>2081</width>
-      <height>691</height>
+      <x>10</x>
+      <y>10</y>
+      <width>1641</width>
+      <height>591</height>
      </rect>
     </property>
     <property name="palette">
@@ -335,8 +351,8 @@ border: none;
     <widget class="QTabWidget" name="tabWidget_10">
      <property name="geometry">
       <rect>
-       <x>210</x>
-       <y>120</y>
+       <x>240</x>
+       <y>70</y>
        <width>801</width>
        <height>471</height>
       </rect>
@@ -462,7 +478,7 @@ margin-top: 2px; /* make non-selected tabs look smaller */
       <enum>QTabWidget::Triangular</enum>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>0</number>
      </property>
      <property name="elideMode">
       <enum>Qt::ElideNone</enum>
@@ -768,7 +784,7 @@ font-family:Arial, Helvetica, sans-serif;
         <string>Salaire</string>
        </property>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>30</x>
@@ -817,7 +833,7 @@ color: rgb(255, 255, 255);
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget_2">
        <property name="geometry">
         <rect>
          <x>400</x>
@@ -871,109 +887,14 @@ color: rgb(255, 255, 255);
       <attribute name="title">
        <string>Afficher</string>
       </attribute>
-      <widget class="QListView" name="listView">
+      <widget class="QTableView" name="tableView">
        <property name="geometry">
         <rect>
-         <x>460</x>
-         <y>50</y>
-         <width>251</width>
-         <height>221</height>
+         <x>25</x>
+         <y>21</y>
+         <width>761</width>
+         <height>401</height>
         </rect>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="afficher2">
-       <property name="geometry">
-        <rect>
-         <x>290</x>
-         <y>250</y>
-         <width>111</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Arial</family>
-         <pointsize>-1</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-color: #dcdcdc;
-background:#535353;
-border: none;
-font-size:12px;
-font-family:Arial, Helvetica, sans-serif;
-border: 2px solid ;
-border-radius: 8px;
-}
-QPushButton:hover {
-color:#fff;
-	background-color: rgb(0, 0, 127);
-border: none;
-}</string>
-       </property>
-       <property name="text">
-        <string>Afficher</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_8">
-       <property name="geometry">
-        <rect>
-         <x>220</x>
-         <y>54</y>
-         <width>150</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QLineEdit {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 4px 0;
-  display: inline-block;
-  border: 1px solid #dcdcdc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  background: #757575;
-  color: #dcdcdc;
-  font-size: 13px;
-font-family:Arial, Helvetica, sans-serif;
-}</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_8">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>60</y>
-         <width>191</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Arial</family>
-         <pointsize>-1</pointsize>
-         <weight>75</weight>
-         <italic>true</italic>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QLabel {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-	color: rgb(83, 83, 83);
-  font-size: 12px;
-font-family:Arial, Helvetica, sans-serif;
-}</string>
-       </property>
-       <property name="text">
-        <string>Num serie du materiels</string>
        </property>
       </widget>
      </widget>
@@ -1082,8 +1003,8 @@ border: none;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1634</width>
-     <height>22</height>
+     <width>1115</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>

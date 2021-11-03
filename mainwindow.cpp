@@ -4,7 +4,8 @@
 #include <QString>
 #include <string>
 #include <iostream>
-
+#include "log_in.h"
+#include "employe.h"
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -18,8 +19,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-
 void MainWindow::on_Valider_clicked()
 {
     QString username=ui->email->text();
@@ -42,4 +41,18 @@ bool f=false;
         QMessageBox::warning(this,"Login","incorrect");
 
 
+    int cin=ui->lineEdit_3->text().toInt();
+    QString nom=ui->lineEdit_2->text();
+    QString prenom=ui->lineEdit_5->text();
+    QString role=ui->lineEdit_6->text();
+    int salaire=ui->lineEdit_18->text().toFloat();
+    QString email=ui->email->text();
+    QString password=ui->password->text();
+    employe e(cin,nom,prenom,role,email,password,salaire);
+    if(e.ajouter()==true)
+    {QMessageBox::information(this,"Login","ss");}
+    else
+    QMessageBox::warning(this,"Login","ff");
 }
+
+

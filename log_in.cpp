@@ -2,14 +2,12 @@
 #include "ui_log_in.h"
 #include <QMessageBox>
 #include <mainwindow.h>
+#include <string>
 Log_in::Log_in(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Log_in)
 {
     ui->setupUi(this);
-
-
-
 }
 
 Log_in::~Log_in()
@@ -45,3 +43,5 @@ bool f=false,m=false;
     if (m==false)
          QMessageBox::warning(this,"Login","mot de passe incorrect");
 }
+
+
