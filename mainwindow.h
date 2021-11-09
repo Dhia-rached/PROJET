@@ -18,6 +18,14 @@ public:
 private slots:
     void on_Valider_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_trier_clicked();
+
 private:
     Ui::MainWindow *ui;
 

@@ -13,13 +13,16 @@
 using namespace std ;
 class employe
 {
-private:
+public:
     int cin;
-    QString nom,prenom,adr,email,mdp;
-    float salaire;
+    QString nom;
+    QString prenom;
+    QString role;
+    int salaire;
 public:
     ////Getters
-    employe(int cin,QString nom,QString prenom,QString adr,QString email,QString mdp,float salaire);
+    employe (){}
+    employe(int cin,QString nom,QString prenom,QString role,float salaire);
     int get_cin();
     QString get_nom();
     QString get_prenom();
@@ -37,6 +40,8 @@ public:
     void set_salaire(float salaire);
     bool ajouter();
     QSqlQueryModel *afficher();
+    bool supprimer(int id);
+    bool modifier(int cin,QString nom,QString prenom,QString role ,int salaire);
 };
 
 #endif // EMPLOYE_H

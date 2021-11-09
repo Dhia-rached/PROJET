@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
         MainWindow w;
     if(test==true)
     {
-    l.show();
+    w.show();
      QMessageBox::information(nullptr,"Data base ","connection succeful");
     }else
     {
@@ -27,6 +27,6 @@ int main(int argc, char *argv[])
 
 
     }
-    c.fermerConnexion();
     return a.exec();
+
 }

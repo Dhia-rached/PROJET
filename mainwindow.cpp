@@ -41,18 +41,55 @@ bool f=false;
         QMessageBox::warning(this,"Login","incorrect");
 
 
-    int cin=ui->lineEdit_3->text().toInt();
-    QString nom=ui->lineEdit_2->text();
-    QString prenom=ui->lineEdit_5->text();
-    QString role=ui->lineEdit_6->text();
-    int salaire=ui->lineEdit_18->text().toFloat();
-    QString email=ui->email->text();
-    QString password=ui->password->text();
-    employe e(cin,nom,prenom,role,email,password,salaire);
+    int cin=ui->CIN->text().toInt();
+    QString nom=ui->NOM->text();
+    QString prenom=ui->PRENOM->text();
+    QString adr=ui->ADR->text();
+    QString role=ui->ROLE->text();
+    int salaire=ui->SALAIRE->text().toInt();
+    employe e(cin,nom,prenom,adr,salaire);
+   /* QString email=ui->email->text();
+    QString password=ui->password->text();*/
+
+
+   // int salaire=ui->SALAIRE->text().toInt();
+
     if(e.ajouter()==true)
     {QMessageBox::information(this,"Login","ss");}
     else
-    QMessageBox::warning(this,"Login","ff");
+    QMessageBox::warning(this,"Login","failed");
+       ui->tableView->setModel(e.afficher());
+
+
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+employe e;
+    int id=ui->lineEdit->text().toInt();
+       bool test= e.supprimer(id);
+       if(test==true)
+       {QMessageBox::information(this,"Login","ss");}
+       else
+       QMessageBox::warning(this,"Login","failed");
+          ui->tableView->setModel(e.afficher());
 }
 
 
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    int cin=ui->CIN->text().toInt();
+    QString nom=ui->NOM->text();
+    QString prenom=ui->PRENOM->text();
+    //QString adr=ui->ADR->text();
+    QString role=ui->ROLE->text();
+    int salaire=ui->SALAIRE->text().toInt();
+    employe e(cin,nom,prenom,role,salaire);
+    if(e.modifier(cin,nom,prenom,role,salaire)==true)
+    QMessageBox::information(this,"Login","ss");
+    else
+    QMessageBox::warning(this,"Login","failed");
+       ui->tableView->setModel(e.afficher());
+}
