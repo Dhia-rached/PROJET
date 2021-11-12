@@ -26,7 +26,7 @@ public:
     bool ajouter_materiel();
     QSqlQueryModel* afficher_materiel();
     bool supprimer_materiel(int);
-    void modifier_materiel();
+    bool modifier_materiel();
 
 
 

@@ -16,7 +16,8 @@ Mat::Mat()
 }
 
 Mat::Mat(int num_serie,int quantiter,int prix,QString nom_fournisseur,QString nom_materiel,QString type)
-{this->num_serie=num_serie; this->quantiter=quantiter; this->prix=prix; this->nom_fournisseur=nom_fournisseur;this->nom_materiel=nom_materiel;this->type=type;}
+
+{this->num_serie=num_serie; this->quantiter=quantiter; this->prix=prix; this->nom_fournisseur=nom_fournisseur;this->nom_materiel=nom_materiel;this->type=type; }
 int Mat::getnums(){return num_serie; }
 int Mat::getquantiter(){return quantiter;}
 int Mat::getprix(){return prix;}
@@ -41,13 +42,13 @@ bool Mat::ajouter_materiel()
     QString quantiter_s=QString::number(quantiter);
     QString prix_s=QString::number(prix);
 
-          query.prepare("INSERT INTO GESTION_MATERIEL (num_serie,quantiter,prix,nom_fournisseur,nom_materiel,type) VALUES (:num_serie,:quantiter,:prix,:nom_fournisseur,:nom_materiel, :type)");
-          query.bindValue(":num_serie",num_serie_s );
-          query.bindValue(":quantiter", quantiter_s);
-          query.bindValue(":prix", prix_s);
-          query.bindValue(":nom_fournisseur", nom_fournisseur);
-          query.bindValue(":nom_materiel", nom_materiel);
-          query.bindValue(":type", type);
+          query.prepare("INSERT INTO GESTION_MATERIEL (num_serie,quantiter,prix,nom_fournisseur,nom_materiel,type) VALUES (:NUM_SERIE,:QUANTITER,:PRIX,:NOM_FOURNISSEUR,:NOM_MATERIEL, :TYPE)");
+          query.bindValue(":NUM_SERIE",num_serie_s );
+          query.bindValue(":QUANTITER", quantiter_s);
+          query.bindValue(":PRIX", prix_s);
+          query.bindValue(":NOM_FOURNISSEUR", nom_fournisseur);
+          query.bindValue(":NOM_MATERIEL",nom_materiel);
+          query.bindValue(":TYPE", type);
 
           return query.exec();
 
@@ -73,13 +74,35 @@ QSqlQueryModel* Mat::afficher_materiel()
 }
 bool Mat::supprimer_materiel(int num_serie)
 {
+      QSqlQuery query;
+
+        query.prepare("Delete from GESTION_MATERIEL where num_serie=:num_serie");
+        query.bindValue(":num_serie", num_serie);
+
+
+    return query.exec();
+}
+
+
+bool Mat::modifier_materiel()
+{
 
     QSqlQuery query;
-    query.prepare("delet form GESTION_MATERIEL where num_serie= num_serie ");
-    query.bindValue(":num_serie",num_serie );
-    return query.exec();
+
+          query.prepare("UPDATE GESTION_MATERIEL SET num_serie=:NUM_SERIE, quantiter=:QUANTITER, prix=:PRIX, nom_fournisseur=:NOM_FOURNISSEUR, nom_materiel=:NOM_MATERIEL, type=:TYPE WHERE num_serie=:NUM_SERIE");
+          query.bindValue(":NUM_SERIE",num_serie );
+          query.bindValue(":QUANTITER", quantiter);
+          query.bindValue(":PRIX", prix);
+          query.bindValue(":NOM_FOURNISSEUR", nom_fournisseur);
+          query.bindValue(":NOM_MATERIEL",nom_materiel);
+          query.bindValue(":TYPE", type);
+
+          return query.exec();
+
+
 
 }
+
 
 
 

@@ -26,6 +26,20 @@ private slots:
 
     void on_nom_m_cursorPositionChanged(int arg1, int arg2);
 
+    void on_Valider_2_clicked();
+
+    void on_afficher_clicked();
+
+    void on_comboBox_currentIndexChanged(int index);
+
+    void on_pushButton_clicked();
+
+    void on_load_list_clicked();
+
+    void on_comboBox_2_currentIndexChanged(int index);
+
+    void on_pushButton_2_clicked();
+
 private:
     Ui::materiel *ui;
     Mat m;
