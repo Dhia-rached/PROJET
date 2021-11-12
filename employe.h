@@ -41,7 +41,7 @@ public:
     bool ajouter();
     QSqlQueryModel *afficher();
     bool supprimer(int id);
-    bool modifier(int cin,QString nom,QString prenom,QString role ,int salaire);
+    bool modifier(int cin,int salaire);
 };
 
 #endif // EMPLOYE_H

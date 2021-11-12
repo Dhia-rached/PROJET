@@ -6,6 +6,7 @@
 #include <iostream>
 #include "log_in.h"
 #include "employe.h"
+#include <QComboBox>
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -13,6 +14,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    QString res=ui->CIN->text();
+    ui->comboBox1->addItem("res");
+
 }
 
 MainWindow::~MainWindow()
@@ -80,16 +84,26 @@ employe e;
 
 void MainWindow::on_pushButton_clicked()
 {
-    int cin=ui->CIN->text().toInt();
+    int cin=ui->cin22->text().toInt();
     QString nom=ui->NOM->text();
     QString prenom=ui->PRENOM->text();
     //QString adr=ui->ADR->text();
     QString role=ui->ROLE->text();
-    int salaire=ui->SALAIRE->text().toInt();
+    int salaire=ui->salaire1->text().toInt();
     employe e(cin,nom,prenom,role,salaire);
-    if(e.modifier(cin,nom,prenom,role,salaire)==true)
+    cout<<cin<<endl;
+    if(e.modifier(cin,salaire)==true)
+    {
     QMessageBox::information(this,"Login","ss");
+    ui->tableView->setModel(e.afficher());
+    }
     else
     QMessageBox::warning(this,"Login","failed");
-       ui->tableView->setModel(e.afficher());
+
+}
+
+
+void MainWindow::on_comboBox_activated(const QString &arg1)
+{
+    QString name;
 }

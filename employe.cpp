@@ -5,6 +5,9 @@
 #include <QString>
 #include <QSqlQueryModel>
 #include <QMessageBox>
+#include <iostream>
+#include <QMainWindow>
+using namespace std;
 employe::employe(int cin,QString nom,QString prenom,QString role,float salaire)
 {
 this->cin=cin;
@@ -64,19 +67,17 @@ QString res=QString::number(cin);
 query.prepare("Delete from GESTION_EMPLOYE where cin= :CIN");
 query.bindValue(":CIN",res);
 return query.exec();
-
 }
 
-bool employe::modifier(int cin,QString nom,QString prenom,QString role ,int salaire)
+bool employe::modifier(int cin,int salaire)
 {
-     QSqlQuery query;
-     QString res=QString::number(cin);
-     QString res1=QString::number(salaire);
-     query.prepare("update GESTION_EMPLOYE set SALAIRE=:salaire where cin=CIN");
-
-     query.bindValue(":SALAIRE",salaire);
-
-     return query.exec();
-
-
+    QSqlQuery query;
+    cout<<cin<<endl;
+       /* QString res1=QString::number(salaire);
+        QString res=QString::number(cin);*/
+        query.prepare("UPDATE GESTION_EMPLOYE SET salaire=:SALAIRE WHERE cin=:CIN");
+        query.bindValue(":SALAIRE",salaire);
+        query.bindValue(":CIN",cin);
+        cout<<cin<<endl;
+        return query.exec();
 }
