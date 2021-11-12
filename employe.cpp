@@ -5,8 +5,9 @@
 #include <QString>
 #include <QSqlQueryModel>
 #include <QMessageBox>
-#include <iostream>
+
 #include <QMainWindow>
+#include <iostream>
 using namespace std;
 employe::employe(int cin,QString nom,QString prenom,QString role,float salaire)
 {

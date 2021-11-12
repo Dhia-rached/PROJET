@@ -91,7 +91,7 @@ void MainWindow::on_pushButton_clicked()
     QString role=ui->ROLE->text();
     int salaire=ui->salaire1->text().toInt();
     employe e(cin,nom,prenom,role,salaire);
-    cout<<cin<<endl;
+    cout  <<cin<<endl;
     if(e.modifier(cin,salaire)==true)
     {
     QMessageBox::information(this,"Login","ss");
