@@ -19,6 +19,7 @@ SOURCES += \
     connection.cpp \
     employe.cpp \
     les_services.cpp \
+    lgoin_bd.cpp \
     log_in.cpp \
     main.cpp \
     mainwindow.cpp
@@ -27,6 +28,7 @@ HEADERS += \
     connection.h \
     employe.h \
     les_services.h \
+    lgoin_bd.h \
     log_in.h \
     mainwindow.h
 

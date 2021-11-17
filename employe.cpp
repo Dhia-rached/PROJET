@@ -5,7 +5,7 @@
 #include <QString>
 #include <QSqlQueryModel>
 #include <QMessageBox>
-
+#include "mainwindow.h"
 #include <QMainWindow>
 #include <iostream>
 using namespace std;
@@ -67,6 +67,10 @@ bool employe::supprimer(int cin)
 QString res=QString::number(cin);
 query.prepare("Delete from GESTION_EMPLOYE where cin= :CIN");
 query.bindValue(":CIN",res);
+
+
+
+
 return query.exec();
 }
 
@@ -81,4 +85,55 @@ bool employe::modifier(int cin,int salaire)
         query.bindValue(":CIN",cin);
         cout<<cin<<endl;
         return query.exec();
+}
+
+QSqlQueryModel* employe ::afficher_id()
+   {
+    QSqlQueryModel* model=new QSqlQueryModel();
+    model->setQuery("select cin from GESTION_EMPLOYE");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("cin"));
+    return model;
+
+   }
+QSqlQueryModel * employe::trier()
+{
+    QSqlQueryModel * model=new QSqlQueryModel();
+
+    model->setQuery("select * from GESTION_EMPLOYE order by salaire");
+
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("cin"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("role"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("salaire"));
+return model;
+}
+QSqlQueryModel *employe::rechercher(int cin)
+{
+QSqlQueryModel * model=new QSqlQueryModel();
+QString res1= QString::number(cin);
+model->setQuery("SELECT * FROM GESTION_EMPLOYE WHERE cin='"+res1+"'");
+
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("cin"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("role"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("salaire"));
+
+return model;
+}
+
+bool employe::ajouter1()
+{
+QString res=QString::number(cin);
+    QSqlQuery query;
+    QString res1= QString::number(cin);
+    QString res2= QString::number(salaire);
+    query.prepare("INSERT INTO LOGIN1 (email,mdp)" "VALUES (:EMAIL,:MDP)");
+    query.bindValue(":EMAIL",email);
+    query.bindValue(":MDP",mdp);
+
+
+
+    return    query.exec();
 }

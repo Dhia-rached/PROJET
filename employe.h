@@ -17,12 +17,16 @@ public:
     int cin;
     QString nom;
     QString prenom;
+    QString email;
+    QString mdp;
+
     QString role;
     int salaire;
 public:
     ////Getters
     employe (){}
     employe(int cin,QString nom,QString prenom,QString role,float salaire);
+
     int get_cin();
     QString get_nom();
     QString get_prenom();
@@ -31,7 +35,7 @@ public:
     QString get_mdp();
     int get_salaire();
     //Setters
-    void set_cin(int cin);
+    void set_cin(int cin){this->cin=cin;};
     void set_nom(QString nom);
     void set_prenom(QString prenom);
     void set_adr(QString adr);
@@ -39,9 +43,14 @@ public:
     void set_mdp(QString mdp);
     void set_salaire(float salaire);
     bool ajouter();
+    bool ajouter1();
+
     QSqlQueryModel *afficher();
     bool supprimer(int id);
     bool modifier(int cin,int salaire);
+    QSqlQueryModel* afficher_id();
+    QSqlQueryModel * trier();
+    QSqlQueryModel *rechercher(int cin);
 };
 
 #endif // EMPLOYE_H

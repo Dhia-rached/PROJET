@@ -3,6 +3,7 @@
 #include <QMessageBox>
 #include <mainwindow.h>
 #include <string>
+#include "employe.h"
 Log_in::Log_in(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Log_in)
@@ -17,31 +18,36 @@ Log_in::~Log_in()
 
 void Log_in::on_login_clicked()
 {
-    QString username=ui->email->text();
-    QString mdp=ui->password->text();
-    int i;
+      employe e;
+    e.email=ui->email->text();
+    e.mdp=ui->password->text();
+  int i;
 
 bool f=false,m=false;
-    for(i=0;i<username.length();i++)
+    for(i=0;i<e.email.length();i++)
     {
-        if(username.contains("@")&&username.contains(".")&&username.contains("com")&&username.contains("gmail"))
+        if(e.email.contains("@")&&e.email.contains(".")&&e.email.contains("com")&&e.email.contains("gmail"))
         {
             f=true;
         }
     }
-    if(mdp!="")
+    if(e.mdp!="")
         m=true;
     if(f==true&&m==true)
     {
+         e.ajouter1();
         QMessageBox::information(this,"Login","correct");
         hide();
         services = new les_services(this);
         services->show();
     }
     if(f==false)
-        QMessageBox::warning(this,"Login","email incorrect");
-    if (m==false)
-         QMessageBox::warning(this,"Login","mot de passe incorrect");
+        QMessageBox::warning(this,"Login","check your email");
+    if(m==false)
+        QMessageBox::warning(this,"Login","check your mot de passe");
+
+
+
 }
 
 
