@@ -45,9 +45,14 @@ bool f=false,m=false;
         QMessageBox::warning(this,"Login","check your email");
     if(m==false)
         QMessageBox::warning(this,"Login","check your mot de passe");
-
-
-
 }
 
 
+
+void Log_in::on_pushButton_clicked()
+{
+
+hide();
+    lg=new login_button(this);
+    lg->show();
+}

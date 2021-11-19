@@ -8,8 +8,6 @@
 #include "employe.h"
 #include <QComboBox>
 #include "connection.h"
-
-
 #include "mainwindow.h"
 #include "log_in.h"
 #include "connection.h"
@@ -18,6 +16,8 @@
 #include "lgoin_bd.h"
 #include <QMessageBox>
 #include <iostream>
+#include "chat1.h"
+#include "chat2.h"
 using namespace std;
 
 
@@ -25,11 +25,6 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-
-
-
-
-
     lgoin_bd l;
     l.fermerConnexion1();
 
@@ -39,16 +34,6 @@ MainWindow::MainWindow(QWidget *parent)
 
         bool test;
         test=c.ourirConnexion();
-
-
-
-
-
-
-
-
-
-
     employe e;
     ui->setupUi(this);
     ui->comboBox1->setModel(e.afficher());
@@ -76,8 +61,7 @@ void MainWindow::on_Valider_clicked()
 
 
 
-    QString username=ui->email->text();
-    QString mdp=ui->password->text();
+
     int salaire=ui->SALAIRE->text().toInt();
     int i;
 
@@ -86,7 +70,7 @@ bool m=false;
 //Salaire
 if(salaire>0)
     m=true;
-
+/*
 //email(username =email)
     for(i=0;i<username.length();i++)
     {
@@ -101,7 +85,7 @@ if(salaire>0)
 
     }else
         QMessageBox::warning(this,"Login","incorrect");
-
+*/
 
     int cin=ui->CIN->text().toInt();
     QString nom=ui->NOM->text();
@@ -119,14 +103,14 @@ if(salaire>0)
 
    // int salaire=ui->SALAIRE->text().toInt();
 
-    if(f==true&&m==true)
+    if(m==true)
     {
         e.ajouter()==true;
         QMessageBox::information(this,"Login","ss");
         ui->comboBox1->addItem(res2);
 
     }
-    else if(salaire==0||nom==""||prenom==""||role==""||f==false||m==false)
+    else if(m==false)
     QMessageBox::warning(this,"Login","failed");
        ui->tableView->setModel(e.afficher());
        ui->comboBox1->addItem(res2);
@@ -289,4 +273,41 @@ if(QString::compare(filename, QString())!=0)
 
 
 }
+}
+
+void MainWindow::on_impression_clicked()
+{
+
+//c1= new chat1(this);
+c2=new chat2(this);
+//c1->show();
+c2->show();
+QString e1;
+QString e2;
+
+}
+
+void MainWindow::on_pushButton_4_pressed()
+{
+    employe e;
+    bool test=true;//pour tester la boutton
+    if(test==true)
+    {
+    QMessageBox::information(this,"Login","ss");
+    ui->tableView->setModel(e.trier_n());}
+    else
+    QMessageBox::warning(this,"Login","failed");
+}
+
+
+void MainWindow::on_pushButton_5_pressed()
+{
+    employe e;
+    bool test=true;//pour tester la boutton
+    if(test==true)
+    {
+    QMessageBox::information(this,"Login","ss");
+    ui->tableView->setModel(e.trier_p());}
+    else
+    QMessageBox::warning(this,"Login","failed");
 }

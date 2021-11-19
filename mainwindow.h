@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include "chat1.h"
+#include "chat2.h"
 #include <QMainWindow>
 #include<QFileDialog>
 QT_BEGIN_NAMESPACE
@@ -36,8 +37,15 @@ private slots:
 
     void on_pushButton_7_clicked();
 
+    void on_impression_clicked();
+
+    void on_pushButton_4_pressed();
+
+    void on_pushButton_5_pressed();
+
 private:
     Ui::MainWindow *ui;
-
+    chat1 *c1;
+    chat2 *c2;
 };
 #endif // MAINWINDOW_H

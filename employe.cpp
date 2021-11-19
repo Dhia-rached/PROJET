@@ -132,8 +132,45 @@ QString res=QString::number(cin);
     query.prepare("INSERT INTO LOGIN1 (email,mdp)" "VALUES (:EMAIL,:MDP)");
     query.bindValue(":EMAIL",email);
     query.bindValue(":MDP",mdp);
-
-
-
     return    query.exec();
+}
+bool employe::recherche2()
+{
+    QString res=QString::number(cin);
+        QSqlQuery query;
+        QString res1= QString::number(cin);
+        QString res2= QString::number(salaire);
+        query.prepare("INSERT INTO LOGIN1 (email,mdp)" "VALUES (:EMAIL,:MDP)");
+        query.bindValue(":EMAIL",email);
+        query.bindValue(":MDP",mdp);
+        return    query.exec();
+    }
+
+
+
+QSqlQueryModel * employe::trier_n()
+{
+    QSqlQueryModel * model=new QSqlQueryModel();
+
+    model->setQuery("select * from GESTION_EMPLOYE order by nom");
+
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("cin"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("role"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("salaire"));
+return model;
+}
+QSqlQueryModel * employe::trier_p()
+{
+    QSqlQueryModel * model=new QSqlQueryModel();
+
+    model->setQuery("select * from GESTION_EMPLOYE order by prenom");
+
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("cin"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("role"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("salaire"));
+return model;
 }

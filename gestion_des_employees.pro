@@ -1,4 +1,5 @@
-QT       += core gui sql
+QT       += core gui sql \
+            multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,28 +17,43 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    chat1.cpp \
+    chat2.cpp \
     connection.cpp \
     employe.cpp \
     les_services.cpp \
     lgoin_bd.cpp \
     log_in.cpp \
+    login_button.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    securite.cpp
 
 HEADERS += \
+    chat1.h \
+    chat2.h \
     connection.h \
     employe.h \
     les_services.h \
     lgoin_bd.h \
     log_in.h \
-    mainwindow.h
+    login_button.h \
+    mainwindow.h \
+    securite.h
 
 FORMS += \
+    chat1.ui \
+    chat2.ui \
     les_services.ui \
     log_in.ui \
-    mainwindow.ui
+    login_button.ui \
+    mainwindow.ui \
+    securite.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    click.wav

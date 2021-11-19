@@ -22,7 +22,7 @@ public:
 
     QString role;
     int salaire;
-public:
+    public:
     ////Getters
     employe (){}
     employe(int cin,QString nom,QString prenom,QString role,float salaire);
@@ -48,8 +48,11 @@ public:
     QSqlQueryModel *afficher();
     bool supprimer(int id);
     bool modifier(int cin,int salaire);
+    bool recherche2();
     QSqlQueryModel* afficher_id();
     QSqlQueryModel * trier();
+    QSqlQueryModel * trier_n();
+    QSqlQueryModel * trier_p();
     QSqlQueryModel *rechercher(int cin);
 };
 

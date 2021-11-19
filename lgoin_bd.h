@@ -15,14 +15,5 @@ public:
     bool createconnect1();
 };
 
-
-
-
-
-
-
-
-
-
-
 #endif // LGOIN_BD_H
+

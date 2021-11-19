@@ -6,11 +6,14 @@
 #include "lgoin_bd.h"
 #include <QMessageBox>
 #include <iostream>
+#include <string>
+#include "securite.h"
 //Dhia
 using namespace std;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    securite h;
     lgoin_bd b;
     Connection c;
     Log_in l;
@@ -22,7 +25,7 @@ int main(int argc, char *argv[])
         test1=b.ourirConnexion1();
         if(test1==true)
         {
-        l.show();
+        h.show();
          QMessageBox::information(nullptr,"Data base ","connection succeful");
         }else
         {
