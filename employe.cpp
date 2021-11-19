@@ -8,6 +8,7 @@
 #include "mainwindow.h"
 #include <QMainWindow>
 #include <iostream>
+#include <string>
 using namespace std;
 employe::employe(int cin,QString nom,QString prenom,QString role,float salaire)
 {
@@ -172,5 +173,35 @@ QSqlQueryModel * employe::trier_p()
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("role"));
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("salaire"));
+return model;
+}
+QSqlQueryModel *employe::rechercher1(QString nom_e)
+{
+QSqlQueryModel * model=new QSqlQueryModel();
+string res1= nom.toStdString();
+model->setQuery("SELECT * FROM GESTION_EMPLOYE WHERE NOM='"+nom_e+"'");
+
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("cin"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("role"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("salaire"));
+
+return model;
+}
+
+
+QSqlQueryModel *employe::rechercher_2(QString nom_e)
+{
+QSqlQueryModel * model=new QSqlQueryModel();
+string res1= nom.toStdString();
+model->setQuery("SELECT * FROM GESTION_EMPLOYE WHERE PRENOM='"+nom_e+"'");
+
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("cin"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("role"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("salaire"));
+
 return model;
 }

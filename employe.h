@@ -54,6 +54,8 @@ public:
     QSqlQueryModel * trier_n();
     QSqlQueryModel * trier_p();
     QSqlQueryModel *rechercher(int cin);
+    QSqlQueryModel *rechercher1(QString nom);
+    QSqlQueryModel *rechercher_2(QString nom_e);
 };
 
 #endif // EMPLOYE_H

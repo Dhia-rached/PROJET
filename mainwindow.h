@@ -43,6 +43,10 @@ private slots:
 
     void on_pushButton_5_pressed();
 
+    void on_pushButton_8_clicked();
+
+    void on_pushButton_9_clicked();
+
 private:
     Ui::MainWindow *ui;
     chat1 *c1;

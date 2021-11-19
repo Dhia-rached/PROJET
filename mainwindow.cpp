@@ -311,3 +311,36 @@ void MainWindow::on_pushButton_5_pressed()
     else
     QMessageBox::warning(this,"Login","failed");
 }
+
+void MainWindow::on_pushButton_8_clicked()
+{
+    QString nom=ui->lineEdit_3->text();
+
+   // int cin1=ui->lineEdit_2->text().toInt();
+
+    employe e(2,nom,"","",0);
+    bool test=true;//pour tester la boutton
+    if(test==true)
+    {
+    QMessageBox::information(this,"Login","ss");
+    ui->tableView_3->setModel(e.rechercher1(nom));}
+    else
+    QMessageBox::warning(this,"Login","failed");
+
+}
+
+void MainWindow::on_pushButton_9_clicked()
+{
+    QString prenom=ui->lineEdit_4->text();
+
+   // int cin1=ui->lineEdit_2->text().toInt();
+
+    employe e(2,"",prenom,"",0);
+    bool test=true;//pour tester la boutton
+    if(test==true)
+    {
+    QMessageBox::information(this,"Login","ss");
+    ui->tableView_3->setModel(e.rechercher_2(prenom));}
+    else
+    QMessageBox::warning(this,"Login","failed");
+}
