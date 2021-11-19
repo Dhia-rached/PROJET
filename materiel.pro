@@ -1,4 +1,6 @@
 QT       += core gui sql
+QT       += printsupport
+QT       += charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -20,13 +22,15 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     mat.cpp \
-    materiel.cpp
+    materiel.cpp \
+    piechart.cpp
 
 HEADERS += \
     connection.h \
     mainwindow.h \
     mat.h \
-    materiel.h
+    materiel.h \
+    piechart.h
 
 FORMS += \
     mainwindow.ui \

@@ -2,6 +2,10 @@
 #define MAT_H
 #include <QString>
 #include<QSqlQueryModel>
+#include <QtCharts>
+#include <QChartView>
+#include <QPieSeries>
+
 using namespace std;
 
 class Mat
@@ -27,8 +31,20 @@ public:
     QSqlQueryModel* afficher_materiel();
     bool supprimer_materiel(int);
     bool modifier_materiel();
+    QSqlQueryModel * rechercher_f(QString);
+    QSqlQueryModel * rechercher_m(QString);
+    QSqlQueryModel * rechercher_t(QString);
+    QSqlQueryModel * trier();
+    QSqlQueryModel * trier_num_serie();
+    QSqlQueryModel * trier_quantiter();
+    int critere_1();
+    int critere_2();
+    int num_row();
 
-
+    QString size();
+        QChartView * piechart();
+        QChartView * piechart2();
+        int count(int, QString);
 
 private:
     int num_serie;
