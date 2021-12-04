@@ -1,5 +1,6 @@
 QT       += core gui sql \
-            multimedia
+            multimedia \
+            serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    arduino.cpp \
     chat1.cpp \
     chat2.cpp \
     connection.cpp \
@@ -30,6 +32,7 @@ SOURCES += \
     securite.cpp
 
 HEADERS += \
+    arduino.h \
     chat1.h \
     chat2.h \
     connection.h \

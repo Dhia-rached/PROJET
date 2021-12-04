@@ -18,6 +18,7 @@
 #include <iostream>
 #include "chat1.h"
 #include "chat2.h"
+#include "arduino.h"
 using namespace std;
 
 
@@ -25,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+
     lgoin_bd l;
     l.fermerConnexion1();
 
@@ -42,6 +44,7 @@ MainWindow::MainWindow(QWidget *parent)
 
    // ui->lineEdit=ui->comboBox1->setCurrentIndex()
     QString res=ui->CIN->text();
+
 }
 
 MainWindow::~MainWindow()
@@ -239,6 +242,7 @@ void MainWindow::on_pushButton_3_pressed()
 
 void MainWindow::on_pushButton_6_clicked()
 {
+
     int cin=ui->comboBox3->currentText().toInt();
 
    // int cin1=ui->lineEdit_2->text().toInt();
@@ -248,7 +252,11 @@ void MainWindow::on_pushButton_6_clicked()
     if(test==true)
     {
     QMessageBox::information(this,"Login","ss");
-    ui->tableView_3->setModel(e.rechercher(cin));}
+    ui->tableView_3->setModel(e.rechercher(cin));
+
+
+//a.write_to_arduino("0");
+    }
     else
     QMessageBox::warning(this,"Login","failed");
 }
@@ -322,7 +330,7 @@ void MainWindow::on_pushButton_8_clicked()
     bool test=true;//pour tester la boutton
     if(test==true)
     {
-    QMessageBox::information(this,"Login","ss");
+    //QMessageBox::information(this,"Login","ss");
     ui->tableView_3->setModel(e.rechercher1(nom));}
     else
     QMessageBox::warning(this,"Login","failed");
@@ -339,7 +347,7 @@ void MainWindow::on_pushButton_9_clicked()
     bool test=true;//pour tester la boutton
     if(test==true)
     {
-    QMessageBox::information(this,"Login","ss");
+   // QMessageBox::information(this,"Login","ss");
     ui->tableView_3->setModel(e.rechercher_2(prenom));}
     else
     QMessageBox::warning(this,"Login","failed");

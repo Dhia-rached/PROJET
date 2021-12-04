@@ -196,7 +196,6 @@ QSqlQueryModel *employe::rechercher_2(QString nom_e)
 QSqlQueryModel * model=new QSqlQueryModel();
 string res1= nom.toStdString();
 model->setQuery("SELECT * FROM GESTION_EMPLOYE WHERE PRENOM='"+nom_e+"'");
-
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("cin"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
