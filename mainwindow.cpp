@@ -26,7 +26,16 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-
+    int ret=A.connect_arduino(); // lancer la connexion à arduino
+    switch(ret){
+    case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+        break;
+    case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+       break;
+    case(-1):qDebug() << "arduino is not available";
+    }
+     QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+     //le slot update_label suite à la reception du signal readyRead (reception des données).
     lgoin_bd l;
     l.fermerConnexion1();
 
@@ -62,7 +71,7 @@ void MainWindow::on_Valider_clicked()
 
 
 
-
+A.write_to_arduino("1");
 
 
     int salaire=ui->SALAIRE->text().toInt();
@@ -156,10 +165,13 @@ int cin=ui->comboBox2->currentText().toInt();
 void MainWindow::on_pushButton_2_clicked()
 {
 employe e;
+A.write_to_arduino("2");
     int cin=ui->comboBox1->currentText().toInt();
-       bool test= e.supprimer(cin);
-       if(test==true)
-       {QMessageBox::information(this,"Login","ss");
+    QByteArray c;
+    data=A.read_from_arduino();
+       if(e.supprimer(cin)==true)
+       {
+       QMessageBox::information(this,"Login","ss");
            ui->comboBox2->removeItem(cin);
            ui->comboBox1->removeItem(cin);
            ui->comboBox3->removeItem(cin);
@@ -213,6 +225,7 @@ void MainWindow::on_pushButton_clicked()
     cout  <<cin<<endl;
     if(e.modifier(cin,salaire)==true)
     {
+        A.write_to_arduino("3");
     QMessageBox::information(this,"Login","ss");
     ui->tableView->setModel(e.afficher());    }
     else
@@ -351,4 +364,35 @@ void MainWindow::on_pushButton_9_clicked()
     ui->tableView_3->setModel(e.rechercher_2(prenom));}
     else
     QMessageBox::warning(this,"Login","failed");
+}
+void MainWindow::update_label()
+{
+  employe e;
+    data=A.read_from_arduino();
+
+    if(data=="1")
+    {
+    A.write_to_arduino("5");
+        int cin=ui->comboBox1->currentText().toInt();
+        QByteArray c;
+        data=A.read_from_arduino();
+           if(e.supprimer(cin)==true)
+           {
+           QMessageBox::information(this,"Login","ss");
+               ui->comboBox2->removeItem(cin);
+               ui->comboBox1->removeItem(cin);
+               ui->comboBox3->removeItem(cin);
+               ui->comboBox1->setModel(e.afficher());
+               ui->comboBox2->setModel(e.afficher());
+               ui->comboBox3->setModel(e.afficher());
+
+           }
+           else
+           QMessageBox::warning(this,"Login","failed");
+              ui->tableView->setModel(e.afficher());
+
+    }
+
+
+
 }

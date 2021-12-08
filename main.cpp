@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 #include "securite.h"
+#include "arduino.h"
 //Dhia
 using namespace std;
 int main(int argc, char *argv[])
@@ -25,6 +26,7 @@ int main(int argc, char *argv[])
         test1=b.ourirConnexion1();
         if(test1==true)
         {
+
         h.show();
          QMessageBox::information(nullptr,"Data base ","connection succeful");
         }else

@@ -4,6 +4,7 @@
 #include "chat2.h"
 #include <QMainWindow>
 #include<QFileDialog>
+#include "arduino.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -18,7 +19,7 @@ public:
 
 private slots:
     void on_Valider_clicked();
-
+    void update_label();
     void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();
@@ -51,5 +52,8 @@ private:
     Ui::MainWindow *ui;
     chat1 *c1;
     chat2 *c2;
+    QByteArray data; // variable contenant les données reçues
+
+    Arduino A; // objet temporaire
 };
 #endif // MAINWINDOW_H
